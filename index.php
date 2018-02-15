@@ -4,16 +4,17 @@
     <meta charset="utf-8">
     <title>Lottokone</title>
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,700" rel="stylesheet">
   </head>
   <body>
-    <h1>Tervetuloa lauantain lottoon!</h1>
+    <h1>LOTTO</h1>
     <form method="get">
       <?php
         for ($i=0; $i <= 5; $i++) {
           echo '<input type="number" min="0" max="30" name="number_' . $i . '" required>';
         }
-      ?>
-      <input type="submit" />
+      ?> <br />
+      <input type="submit" value="Arvo lottorivi" />
     </form>
     <p>
     <?php
@@ -43,16 +44,16 @@
         }
       ?>
     </p>
-    <p>
+    <h2>
       <?php
         $result = array_intersect($_GET, $lotteryNumbers);
 
         if (count($result) < 6) {
-          echo count($result) . " oikein. Ei voittoa tällä kertaa.";
+          echo '<strong>' . count($result) . '</strong>' . " oikein. Ei voittoa tällä kertaa.";
         } else {
           echo count($result) . " oikein. Olet ansainnut päävoiton!";
         }
       ?>
-    </p>
+    </h2>
   </body>
 </html>
